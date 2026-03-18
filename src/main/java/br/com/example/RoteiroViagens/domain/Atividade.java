@@ -26,9 +26,7 @@ abstract class Atividade {
         this.custoEuros = custoEuros;
     }
 
-    public Atividade() {
-
-    }
+    public Atividade() {}
 
     public String getNome() {
         return nome;

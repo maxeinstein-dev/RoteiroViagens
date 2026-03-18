@@ -9,6 +9,8 @@ public class ExperienciaGastronomica extends Atividade{
 
     private double taxaServico;
 
+    public ExperienciaGastronomica(){}
+
     public ExperienciaGastronomica(String nome, LocalDate data, double custoEuros, double taxaServico) {
         super(nome, data, custoEuros);
         this.taxaServico = taxaServico;

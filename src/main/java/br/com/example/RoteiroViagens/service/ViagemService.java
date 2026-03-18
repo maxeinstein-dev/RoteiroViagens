@@ -10,14 +10,17 @@ import java.util.List;
 @Service
 public class ViagemService {
 
-    @Autowired
-    private ViagemRepository viagemRepository;
-    
-    public Viagem criarViagem(Viagem viagem){
+    private final ViagemRepository viagemRepository;
+
+    public ViagemService(ViagemRepository viagemRepository) {
+        this.viagemRepository = viagemRepository;
+    }
+
+    public Viagem criarViagem(Viagem viagem) {
         return viagemRepository.save(viagem);
     }
-    
-    public List<Viagem> listarTodas(){
+
+    public List<Viagem> listarTodas() {
         return viagemRepository.findAll();
     }
 }

@@ -10,6 +10,8 @@ public class Voo extends Atividade{
     private String numeroVoo;
     private boolean incluiBagagem;
 
+    public Voo(){}
+
     public Voo(String nome, LocalDate data, double custoEuros, String numeroVoo, boolean incluiBagagem) {
         super(nome, data, custoEuros);
         this.numeroVoo = numeroVoo;
