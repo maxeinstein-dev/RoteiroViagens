@@ -1,11 +1,9 @@
 package br.com.example.RoteiroViagens.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Viagem {
@@ -15,7 +13,9 @@ public class Viagem {
     private Long id;
     private String destino;
     private double orcamentoTotal;
-    private ArrayList<Atividade> atividades = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "viagem_id")
+    private List<Atividade> atividades = new ArrayList<>();
 
     public Viagem() {}
 
@@ -40,11 +40,11 @@ public class Viagem {
         this.orcamentoTotal = orcamentoTotal;
     }
 
-    public ArrayList<Atividade> getAtividades() {
+    public List<Atividade> getAtividades() {
         return atividades;
     }
 
-    public void setAtividades(ArrayList<Atividade> atividades) {
+    public void setAtividades(List<Atividade> atividades) {
         this.atividades = atividades;
     }
 
