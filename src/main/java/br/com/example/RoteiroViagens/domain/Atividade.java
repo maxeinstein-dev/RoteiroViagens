@@ -3,8 +3,13 @@ package br.com.example.RoteiroViagens.domain;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Future;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PositiveOrZero;
 
 import java.time.LocalDate;
+
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "tipoAtividade")
 @JsonSubTypes({
         @JsonSubTypes.Type(value = Voo.class, name = "VOO"),
@@ -16,8 +21,15 @@ public abstract class Atividade {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotBlank
     private String nome;
+
+    @NotNull
+    @Future
     private LocalDate data;
+
+    @PositiveOrZero
     private double custoEuros;
 
     public Atividade(String nome, LocalDate data, double custoEuros) {
@@ -26,7 +38,8 @@ public abstract class Atividade {
         this.custoEuros = custoEuros;
     }
 
-    public Atividade() {}
+    public Atividade() {
+    }
 
     public String getNome() {
         return nome;
@@ -52,7 +65,7 @@ public abstract class Atividade {
         this.custoEuros = custoEuros;
     }
 
-    public double calcularCustoFinal(){
+    public double calcularCustoFinal() {
         return getCustoEuros();
     }
 }
