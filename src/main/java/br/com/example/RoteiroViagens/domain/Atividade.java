@@ -12,7 +12,7 @@ import java.time.LocalDate;
 })
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-abstract class Atividade {
+public abstract class Atividade {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -51,7 +51,6 @@ abstract class Atividade {
     public void setCustoEuros(double custoEuros) {
         this.custoEuros = custoEuros;
     }
-
 
     public double calcularCustoFinal(){
         return getCustoEuros();
