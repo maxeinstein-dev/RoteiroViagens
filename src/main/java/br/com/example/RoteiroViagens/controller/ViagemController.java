@@ -4,11 +4,8 @@ import br.com.example.RoteiroViagens.domain.Viagem;
 import br.com.example.RoteiroViagens.dto.ViagemRequestDTO;
 import br.com.example.RoteiroViagens.service.ViagemService;
 import jakarta.validation.Valid;
-import org.apache.catalina.valves.rewrite.ResolverImpl;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
